@@ -8,9 +8,9 @@ services:
       db:
         condition: service_healthy
     environment:
-      - DB_HOST=db
-      - DB_NAME=vanilla
-      - DB_USER=root
+      - DB_HOST=${DB_HOST}
+      - DB_NAME=${DB_NAME}
+      - DB_USER=${DB_USER}
       - DB_PASS=${DB_PASS}
     develop:
       watch:
@@ -27,7 +27,9 @@ services:
       - MARIADB_ROOT_PASSWORD=${DB_PASS}
       - MARIADB_DATABASE=example
     expose:
-      - 3306
+      - ${DB_PORT}
+    ports:
+      - ${DB_PORT}:3306
     healthcheck:
       test:
         [
@@ -50,6 +52,8 @@ services:
       - db
     environment:
       - PMA_HOST=db
+      - MYSQL_TCP_PORT=${DB_PORT}
+      - MYSQL_UNIX_PORT=${DB_PORT}
 networks:
   default:
     name: shared-db
