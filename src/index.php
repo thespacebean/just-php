@@ -4,7 +4,7 @@ use App\Examples\SquareShape;
 
 require __DIR__ . '/vendor/autoload.php';
 
-$shape = new SquareShape('red');
+$shape = new SquareShape('blue');
 
 $text = $shape->showDetails();
 

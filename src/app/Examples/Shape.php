@@ -4,10 +4,15 @@ namespace App\Examples;
 
 abstract class Shape
 {
+
+    protected string $type;
     public function __construct(protected string $color)
     {}
 
-    abstract public function getType(): string;
+    public function getType(): string
+    {
+        return $this->type;
+    }
 
     abstract public function showDetails(): string;
 

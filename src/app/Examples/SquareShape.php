@@ -5,10 +5,7 @@ namespace App\Examples;
 class SquareShape extends Shape
 {
 
-    public function getType(): string
-    {
-        return 'square';
-    }
+    protected string $type = 'square';
 
     public function showDetails(): string
     {
