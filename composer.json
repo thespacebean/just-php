@@ -1,8 +1,9 @@
 {
   "name": "vanilla/vanilla",
-  "description": "Vanilla PHP",
+  "description": "Vanilla PHP with Twig Template Engine",
   "require": {
-    "ext-pdo": "*"
+    "ext-pdo": "*",
+    "twig/twig": "^3.0"
   },
     "require-dev": {
       "phpunit/phpunit": "^11.5.3"
@@ -24,4 +25,3 @@
     "test": "vendor/bin/phpunit --do-not-cache-result"
   }
  }
- 
