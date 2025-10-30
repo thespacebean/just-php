@@ -1,8 +1,8 @@
 <?php
 
-use App\Examples\SquareShape;
-
 require __DIR__ . '/bootstrap.php';
+
+use App\Examples\SquareShape;
 
 $shape = new SquareShape('blue');
 
