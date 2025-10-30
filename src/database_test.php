@@ -4,6 +4,7 @@ use App\DB\DbConnector;
 
 require __DIR__ . '/vendor/autoload.php';
 
+
 $db = new DbConnector();
 $dbc = $db->connect();
 
