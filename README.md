@@ -65,3 +65,61 @@ composer test
 ```
 
 Sample test lives in `tests/ExampleTest.php`. PHPUnit config: `phpunit.xml.dist`.
+
+## Run locally on Linux (without Docker)
+
+### Prerequisites
+
+- PHP 8.4 with extensions: `pdo`, `pdo_mysql`
+- Composer
+- MariaDB or MySQL server
+
+### 1) Configure environment
+
+Create a `.env` file at the repo root (copy from `.enx.example` and fill values):
+
+```
+DB_HOST=127.0.0.1
+DB_NAME=vanilla
+DB_USER=root
+DB_PASS=your_password
+APP_PORT=8001
+```
+
+These variables are read by the app via `getenv()`.
+
+Export them in your shell for the current session (or use a tool like direnv):
+
+```bash
+export $(grep -v '^#' .env | xargs)
+```
+
+Create the database if it does not exist:
+
+```bash
+mariadb -uroot -p"$DB_PASS" -e "CREATE DATABASE IF NOT EXISTS \`$DB_NAME\`;"
+```
+
+### 2) Install PHP dependencies
+
+```bash
+composer install
+```
+
+### 3) Serve the app
+
+Using PHP’s built-in server (for development):
+
+```bash
+php -S 127.0.0.1:$APP_PORT -t src
+```
+
+Now open `http://127.0.0.1:$APP_PORT/`.
+
+Alternatively configure Apache/Nginx to serve the `src/` directory as the web root and ensure `vendor/` is available at `src/vendor/` (Composer places it at the project root; the app requires it via `src/index.php`). If needed, adjust the autoload path or web root accordingly.
+
+### 4) Run tests
+
+```bash
+composer test
+```
