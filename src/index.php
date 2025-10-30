@@ -1,8 +1,9 @@
 <?php
 
-use App\Examples\SquareShape;
 $app = require __DIR__ . '/bootstrap.php';
 $twig = $app['twig'];
+
+use App\Examples\SquareShape;
 
 $shape = new SquareShape('blue');
 
