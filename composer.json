@@ -13,7 +13,10 @@
         "src/app/",
         "app/"
       ]
-    }
+    },
+    "files": [
+      "src/app/bootstrap_runtime.php"
+    ]
   },
   "autoload-dev": {
     "psr-4": {

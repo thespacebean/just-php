@@ -2,7 +2,7 @@
 
 use App\DB\DbConnector;
 
-require __DIR__ . '/vendor/autoload.php';
+require __DIR__ . '/bootstrap.php';
 
 
 $db = new DbConnector();
